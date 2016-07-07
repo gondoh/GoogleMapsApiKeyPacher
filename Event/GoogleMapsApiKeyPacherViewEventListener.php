@@ -12,6 +12,8 @@ class GoogleMapsApiKeyPacherViewEventListener extends BcViewEventListener {
 	public function afterLayout(CakeEvent $event) {
 		$View = $event->subject;
 		$key = $View->BcBaser->siteConfig[Configure::read('GoogleMapsApiKeyPacher.keyName')];
+		
+		if (empty($key)) return true;
 
 		// google maps apiに 登録キーを追加
 		$output = $View->output;
